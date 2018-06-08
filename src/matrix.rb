@@ -11,8 +11,9 @@ def get_cell(matrix, i, j)
 end
 
 def set_cell(matrix, i, j, n)
-  matrix[get_cell_index_from_pos(i, j) - 1] = n.to_s
-  matrix
+  new_matrix = matrix.dup
+  new_matrix[get_cell_index_from_pos(i, j) - 1] = n.to_s
+  new_matrix
 end
 
 def get_row(matrix, i)
