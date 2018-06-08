@@ -3,10 +3,20 @@ require 'test/unit'
 require_relative '../src/matrix'
 
 class UnitTest < Test::Unit::TestCase
+  test "get_cell_index_from_pos" do
+    assert_equal 1, get_cell_index_from_pos(1, 1)
+    assert_equal 20, get_cell_index_from_pos(3, 2)
+  end
+
   test "get_cell" do
     matrix = "864371259325849761971265843436192587198657432257483916689734125713528694542916378"
     assert_equal "6", get_cell(matrix, 1, 2)
     assert_equal "8", get_cell(matrix, 5, 3)
+  end
+
+  test "set_cell" do
+    matrix = "004300209005009001070060043006002087190007400050083000600000105003508690042910300"
+    assert_equal "014300209005009001070060043006002087190007400050083000600000105003508690042910300", set_cell(matrix, 1, 2, 1)
   end
 
   test "get_row" do

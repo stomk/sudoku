@@ -1,8 +1,18 @@
 N = 9
 EMPTY_CHAR = "0"
 
+# 1..N^2
+def get_cell_index_from_pos(i, j)
+  (i - 1) * N + j
+end
+
 def get_cell(matrix, i, j)
-  get_row(matrix, i)[j - 1]
+  matrix[get_cell_index_from_pos(i, j) - 1]
+end
+
+def set_cell(matrix, i, j, n)
+  matrix[get_cell_index_from_pos(i, j) - 1] = n.to_s
+  matrix
 end
 
 def get_row(matrix, i)
