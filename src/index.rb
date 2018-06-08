@@ -11,3 +11,27 @@ ANS_MAP = {
 def solve(input)
   ANS_MAP[input]
 end
+
+def pick_cell(matrix)
+  if count_unplaced(matrix) == 0
+    return nil
+  end
+
+  max = { position: nil, num_placed: 0 }
+
+  (1..N).each do |i|
+    (1..N).each do |j|
+      next if placed?(matrix, i, j)
+      num_placed =
+        [get_row(matrix, i), get_col(matrix, j), get_block(matrix, get_block_index_from_pos(i, j))]
+        .map{|m| count_placed(m) }
+        .sum
+      if num_placed > max[:num_placed]
+        max[:position] = [i, j]
+        max[:num_placed] = num_placed
+      end
+    end
+  end
+
+  max[:position]
+end

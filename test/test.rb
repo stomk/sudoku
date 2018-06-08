@@ -4,7 +4,7 @@ require_relative '../src/index'
 
 class IntegrationTest < Test::Unit::TestCase
   def test_examples
-    f = File.open("examples.csv")
+    f = File.open("./test/examples.csv")
     lines = f.readlines(chomp: true)
     lines.each do |line|
       input, output = line.split(",")
