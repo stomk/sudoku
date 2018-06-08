@@ -65,3 +65,7 @@ end
 def count_placed(matrix)
   matrix.length - count_unplaced(matrix)
 end
+
+def filled?(matrix)
+  count_unplaced(matrix) == 0
+end

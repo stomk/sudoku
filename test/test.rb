@@ -8,7 +8,8 @@ class IntegrationTest < Test::Unit::TestCase
     lines = f.readlines(chomp: true)
     lines.each do |line|
       input, output = line.split(",")
-      assert_equal solve(input), output
+      result = solve(input)
+      assert_equal output, result
     end
   end
 end
