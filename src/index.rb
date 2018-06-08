@@ -31,6 +31,7 @@ def solve(input, debug: false)
 
   loop do
     matrix = stack.pop
+    puts matrix if debug
 
     if matrix.nil?
       # Search finished
@@ -43,6 +44,7 @@ def solve(input, debug: false)
         return nil
       end
       # Solution found
+      puts "/** Solution found **/" if debug
       solution = matrix
       next
     end
