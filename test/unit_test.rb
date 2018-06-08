@@ -50,6 +50,12 @@ class UnitTest < Test::Unit::TestCase
     assert_equal false, can_place_in_block?(matrix, 1, 4)
   end
 
+  test "can_place?" do
+    matrix = "004300209005009001070060043006002087190007400050083000600000105003508690042910300"
+    assert_equal true, can_place?(matrix, 4, 2, 3)
+    assert_equal false, can_place?(matrix, 4, 2, 1)
+  end
+
   def test_count_unplaced
     assert_equal 5, count_unplaced("004300209")
   end

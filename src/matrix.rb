@@ -37,6 +37,12 @@ def can_place_in_block?(matrix, i, n)
   !get_block(matrix, i).include?(n.to_s)
 end
 
+def can_place?(matrix, i, j, n)
+  can_place_in_row?(matrix, i, n) &&
+  can_place_in_col?(matrix, j, n) &&
+  can_place_in_block?(matrix, get_block_index_from_pos(i, j), n)
+end
+
 def placed?(matrix, i, j)
   get_cell(matrix, i, j) != EMPTY_CHAR
 end
